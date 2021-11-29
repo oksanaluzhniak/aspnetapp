@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\4year\\Diplom\\aspnetapp\\aspnetapp\\aspnetapp.csproj": {}
+    "d:\\4year\\Diplom\\aspnetapp\\aspnetapp\\aspnetapp.csproj": {}
   },
   "projects": {
-    "D:\\4year\\Diplom\\aspnetapp\\aspnetapp\\aspnetapp.csproj": {
+    "d:\\4year\\Diplom\\aspnetapp\\aspnetapp\\aspnetapp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\4year\\Diplom\\aspnetapp\\aspnetapp\\aspnetapp.csproj",
+        "projectUniqueName": "d:\\4year\\Diplom\\aspnetapp\\aspnetapp\\aspnetapp.csproj",
         "projectName": "aspnetapp",
-        "projectPath": "D:\\4year\\Diplom\\aspnetapp\\aspnetapp\\aspnetapp.csproj",
+        "projectPath": "d:\\4year\\Diplom\\aspnetapp\\aspnetapp\\aspnetapp.csproj",
         "packagesPath": "C:\\Users\\luzhn\\.nuget\\packages\\",
-        "outputPath": "D:\\4year\\Diplom\\aspnetapp\\aspnetapp\\obj\\",
+        "outputPath": "d:\\4year\\Diplom\\aspnetapp\\aspnetapp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\luzhn\\AppData\\Roaming\\NuGet\\NuGet.Config",

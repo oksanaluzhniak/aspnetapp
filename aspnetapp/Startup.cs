@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,7 +41,7 @@ namespace aspnetapp
         public static bool IsFree(string login)
         {
             bool isFree = true;
-            using (StreamReader fileObj = new StreamReader("root/sf/user.txt"))
+            using (StreamReader fileObj = new StreamReader("D:\\4year\\Diplom\\userss.txt"))
             {
                 string s = fileObj.ReadLine();
                 while (s != null)
@@ -60,7 +61,7 @@ namespace aspnetapp
             string text = "";
             if (IsFree(login))
             {
-                using (StreamWriter fileObj = new StreamWriter("root/sf/user.txt", true))
+                using (StreamWriter fileObj = new StreamWriter("D:\\4year\\Diplom\\userss.txt", true))
                 {
                     fileObj.WriteLine(login);
                 }
@@ -76,15 +77,15 @@ namespace aspnetapp
         public static List<string> Users()
         {
             List<string> users = new List<string>();
-            using (StreamReader fileObj = new StreamReader("root/sf/user.txt"))
+            using (StreamReader fileObj = new StreamReader("D:\\4year\\Diplom\\userss.txt"))
             {
                 string line = fileObj.ReadLine();
-                users.Add(line);
-                do
+                
+                while (line != null)
                 {
-                    line = fileObj.ReadLine();
                     users.Add(line);
-                } while (line == null);
+                    line = fileObj.ReadLine();                    
+                }
             }
             return users;
         }
@@ -100,7 +101,13 @@ namespace aspnetapp
         {
             app.Run(async context =>
             {
-                var login = context.Request.Form["login"];
+                var request = context.Request.Body;
+                string login;
+                using (StreamReader reader = new StreamReader(request))
+                {
+                    string body = await reader.ReadToEndAsync();
+                    login = JObject.Parse(body)["login"].ToString();
+                }
                 await context.Response.WriteAsync(JsonConvert.SerializeObject(NewLogin(login)));
             });
         }
