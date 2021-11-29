@@ -34,14 +34,14 @@ namespace aspnetapp
             app.Map("/AddLogin", AddLogin);
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Налаштування служби контейниризації Docker в ОС Linux");
+                await context.Response.WriteAsync("Docker in OS LINUX");
             });
         }
 
         public static bool IsFree(string login)
         {
             bool isFree = true;
-            using (StreamReader fileObj = new StreamReader("D:\\4year\\Diplom\\userss.txt"))
+            using (StreamReader fileObj = new StreamReader("/user/src/app/shared_folder/users.txt"))
             {
                 string s = fileObj.ReadLine();
                 while (s != null)
@@ -61,7 +61,7 @@ namespace aspnetapp
             string text = "";
             if (IsFree(login))
             {
-                using (StreamWriter fileObj = new StreamWriter("D:\\4year\\Diplom\\userss.txt", true))
+                using (StreamWriter fileObj = new StreamWriter("/user/src/app/shared_folder/users.txt", true))
                 {
                     fileObj.WriteLine(login);
                 }
@@ -77,7 +77,7 @@ namespace aspnetapp
         public static List<string> Users()
         {
             List<string> users = new List<string>();
-            using (StreamReader fileObj = new StreamReader("D:\\4year\\Diplom\\userss.txt"))
+            using (StreamReader fileObj = new StreamReader("/user/src/app/shared_folder/users.txt"))
             {
                 string line = fileObj.ReadLine();
                 
